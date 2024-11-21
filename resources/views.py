@@ -10,6 +10,6 @@ def topic_detail(request, id):
     id = id
     return render(request, 'resources/topic_detail.html', {'id':id})
 
-def project_detail(request, id):
-    id = id
-    return render(request, 'resources/project_detail.html', {'id':id})
+def project_detail(request, str):
+    str = str
+    return render(request, 'resources/project_detail.html', {'str':str})
