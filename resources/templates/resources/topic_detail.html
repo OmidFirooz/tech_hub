@@ -1,8 +1,14 @@
 {% extends 'resources/base.html' %}
 
 {% block content %}
-
-<h1>Topic Detail Template is working</h1>
-
-<h1>{{id}}</h1>
+<h2>{{ topic.name }}</h2>
+<p>{{ topic.description}}</p>
+<h3>Resources</h3>
+<ul>
+    {% for resource in resources %}
+        <li>
+            <strong>{{ resource.title }}</strong>: {{resource.description }} ({{ resource.resource_type }})
+        </li>
+    {% endfor %}
+</ul>
 {% endblock content %}

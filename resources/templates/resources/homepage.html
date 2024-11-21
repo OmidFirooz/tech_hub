@@ -1,5 +1,18 @@
 {% extends 'resources/base.html' %}
 
 {% block content %}
-<h1>Homepage Template is working</h1>
+    <h2>Explore Topics</h2>
+    <div class="row">
+        {% for topic in topics%}
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ topic.name }}</h5>
+                        <p class="card-text">{{ topic.description }}</p>
+                        <a href="{% url 'topic_detail' topic.id %}" class="btn btn-primary">View Resource</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

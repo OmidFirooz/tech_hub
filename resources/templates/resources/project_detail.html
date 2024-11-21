@@ -1,6 +1,8 @@
 {% extends 'resources/base.html' %}
 
 {% block content %}
-<h1>Project Template is working</h1>
-<h1>{{str}}</h1>
+<h2> {{ project.title }} </h2>
+<p> {{ project.description }} </p>
+<p> <strong>Author:</strong>{{project.author}}</p>
+<p><strong>GitHub:</strong><a href="{{ project.github_link }}" target="_blank">{{ project.github_link }}</a><p>
 {% endblock content %}
