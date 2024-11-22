@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Topic, Project, Resources
+from .models import Topic, Project, Resource, Profile
 
 # Register your models here.
 admin.site.register(Topic)
 admin.site.register(Project)
-admin.site.register(Resources)
+admin.site.register(Resource)
+admin.site.register(Profile)

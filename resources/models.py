@@ -1,33 +1,36 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
-
+# Topic Model
 class Topic(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=200)
     description = models.TextField()
-    
+
     def __str__(self):
         return self.name
-    
-class Resources(models.Model):
-    RESOURCES_TYPES = [
-        ('Article', 'Article'),
-        ('Video', 'Video'),
-        ('Tutorial', 'Tutorial')
-    ]
-    title = models.CharField(max_length=100)
-    descritption = models.TextField()
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    resource_type = models.CharField(max_length=50, choices=RESOURCES_TYPES)
-    
-    def __str__(self):
-        return self.title
-    
-class Project(models.Model):
-    title = models.CharField(max_length=100)
+
+# Resource Model
+class Resource(models.Model):
+    title = models.CharField(max_length=200)
+    link = models.URLField()
     description = models.TextField()
-    author = models.CharField(max_length=50)
-    github_link = models.URLField(blank=True)
-    
+
     def __str__(self):
         return self.title
+
+# Project Model
+class Project(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    github_link = models.URLField()
+
+    def __str__(self):
+        return self.name
+
+# Profile Model (linked to the User model)
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='resources_profile')
+    extra_info = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.user.username

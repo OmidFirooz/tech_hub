@@ -1,14 +1,10 @@
 {% extends 'resources/base.html' %}
 
 {% block content %}
-<h2>{{ topic.name }}</h2>
-<p>{{ topic.description}}</p>
-<h3>Resources</h3>
-<ul>
-    {% for resource in resources %}
-        <li>
-            <strong>{{ resource.title }}</strong>: {{resource.description }} ({{ resource.resource_type }})
-        </li>
-    {% endfor %}
-</ul>
-{% endblock content %}
+<div class="container mt-4">
+    <h2>{{ topic.name }}</h2>
+    <p>{{ topic.description }}</p>
+    <a href="{% url 'resources:topics' %}" class="btn btn-secondary">Back to Topics</a>
+</div>
+{% endblock %}
+
