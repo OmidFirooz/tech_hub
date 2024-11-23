@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 # Topic Model
 class Topic(models.Model):
@@ -28,9 +28,9 @@ class Project(models.Model):
         return self.name
 
 # Profile Model (linked to the User model)
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='resources_profile')
-    extra_info = models.TextField(blank=True)
+# class Profile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='resources_profile')
+#     extra_info = models.TextField(blank=True)
 
-    def __str__(self):
-        return self.user.username
+#     def __str__(self):
+#         return self.user.username

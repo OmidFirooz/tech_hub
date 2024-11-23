@@ -9,8 +9,9 @@ def register_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            print(f"User created: {user.username}")
             login(request, user)
-            return redirect('homepage')
+            return redirect('resources:homepage')
     else:
         form = UserCreationForm()
     return render(request, 'account/register.html', {'form': form})
@@ -21,18 +22,23 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('homepage')
+            return redirect('resources:homepage')
     else:
         form = AuthenticationForm()
     return render(request, 'account/login.html', {'form': form})
 
 def logout_view(request):
     logout(request)
-    return redirect('homepage')
+    return redirect('resources:homepage')
 
 @login_required
 def profile_view(request):
-    return render(request, 'account/profile.html', {'profile': request.user.profile})
+    try:
+        profile = request.user.profile
+    except:
+        print(f"Profile does not exist for user: {request.user.username}")
+        return redirect('account:profile_update')
+    return render(request, 'account/profile.html', {'profile': profile})
 
 @login_required
 def profile_update(request):
@@ -40,7 +46,7 @@ def profile_update(request):
         form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             form.save()
-            return redirect('profile_view')
+            return redirect('account:profile_view')
     else:
         form = ProfileUpdateForm(instance=request.user.profile)
     return render(request, 'account/profile_update.html', {'form': form})
