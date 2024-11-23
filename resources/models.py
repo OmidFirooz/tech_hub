@@ -1,10 +1,11 @@
 from django.db import models
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 
 # Topic Model
 class Topic(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='topics')
 
     def __str__(self):
         return self.name
@@ -14,6 +15,7 @@ class Resource(models.Model):
     title = models.CharField(max_length=200)
     link = models.URLField()
     description = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='resources')
 
     def __str__(self):
         return self.title
@@ -23,14 +25,7 @@ class Project(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     github_link = models.URLField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
 
     def __str__(self):
         return self.name
-
-# Profile Model (linked to the User model)
-# class Profile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='resources_profile')
-#     extra_info = models.TextField(blank=True)
-
-#     def __str__(self):
-#         return self.user.username

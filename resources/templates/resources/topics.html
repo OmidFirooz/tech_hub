@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="container my-5">
+    <a href="{% url 'resources:add_topic' %}">Add</a>
     <h1 class="text-center mb-4">Explore Topics</h1>
     <div class="row">
         {% for topic in topics %}

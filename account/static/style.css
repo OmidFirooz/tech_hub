@@ -11,3 +11,47 @@
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0,6);
     border-radius: 10px;
 }
+
+#id_username {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-style: nont;
+    border-radius: 0.3rem;
+    width: 95%;
+}
+
+#id_password {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-style: nont;
+    border-radius: 0.3rem;
+    width: 95%;
+}
+
+#id_password1 {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-style: nont;
+    border-radius: 0.3rem;
+    width: 95%;
+}
+
+#id_password2 {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-style: nont;
+    border-radius: 0.3rem;
+    width: 95%;
+}
+
+.profile-card {
+    width: 20rem;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.5), 3rem 0rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+
+#image {
+    width: 10rem;
+    height: 10rem;
+    padding-bottom:1.5rem ;
+    border-radius: 0.3rem;
+}
