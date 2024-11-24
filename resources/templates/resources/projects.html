@@ -9,11 +9,10 @@
         {% for project in projects %}
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
-                <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.name }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ project.name }}</h5>
-                    <p class="card-text">{{ project.description }}</p>
-                    <a href="{{ project.github_link }}" class="btn btn-success" target="_blank">View on GitHub</a>
+                    <h5 class="card-title">{{ project.project_name }}</h5>
+                    <p class="card-text">{{ project.abstract }}</p>
+                    <a href="{% url 'resources:projects_detail' project.pk %}" class="btn btn-success">View more ...</a>
                 </div>
             </div>
         </div>

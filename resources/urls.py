@@ -4,15 +4,21 @@ from . import views
 app_name = 'resources'
 
 urlpatterns = [
-    # path('', views.homepage, name='homepage'),
+    # homepage
     path('', views.dashboard, name='dashboard'),
-    path('topics/', views.topics_view, name='topics'),
-    path('topic/<int:pk>/', views.topic_detail, name="topic_detail"),
-    path('add-topic/', views.add_topic, name='add_topic'),
-    path('resources/', views.resources_view, name='resources'),
-    path('resources/<int:pk>', views.resource_detail, name='resource_detail'),
-    path('add-resources/', views.add_resources, name="add_resources"),
+    
+    # article
+    path('articles/', views.articles_view, name='articles'),
+    path('article/<int:pk>/', views.article_detail, name="article_detail"),
+    path('add-article/', views.add_article, name='add_article'),
+    
+    # Monograph
+    path('monographs/', views.monographs_view, name='monographs'),
+    path('monographs/<int:pk>', views.monograph_detail, name='monograph_detail'),
+    path('add-monographs/', views.add_monograph, name="add_monograph"),
+
+    # Project
     path('projects/', views.projects_view, name='projects'),
-    path('add-project/<int:pk>', views.add_project, name='project_detail'),
-    path('projects/', views.projects_view, name='projects'),
+    path('add-project/', views.add_project, name='add_project'),
+    path('projects/<int:pk>', views.project_detail, name='projects_detail'),
 ]

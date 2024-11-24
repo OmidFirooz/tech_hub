@@ -1,17 +1,17 @@
 from django import forms
-from .models import Topic, Resource, Project
+from .models import Article, Monograph, Project
 
-class TopicForm(forms.ModelForm):
+class ArticleForm(forms.ModelForm):
     class Meta:
-        model = Topic
-        fields = ['name', 'description']
+        model = Article
+        fields = ['title', 'user', 'abstract', 'file']
         
-class ResourceForm(forms.ModelForm):
+class MonographForm(forms.ModelForm):
     class Meta:
-        model = Resource
-        fields = ['title', 'link', 'description', 'file', 'image']
+        model = Monograph
+        fields = ['title', 'user', 'abstract', 'file']
         
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['name', 'description', 'github_link', 'file', 'image']
+        fields = ['project_name', 'user', 'github_link', 'abstract', 'file']

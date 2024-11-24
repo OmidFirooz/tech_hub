@@ -1,10 +1,9 @@
 {% extends 'resources/base.html' %}
 
 {% block content %}
-<h1>{{ project.name }}</h1>
-<p><strong>Description:</strong> {{ project.description }}</p>
-<p><strong>GitHub Link:</strong> {% if project.github_link %}<a href="{{ project.github_link }}" target="_blank">View on GitHub</a>{% else %}No GitHub link provided{% endif %}</p>
-<p><strong>File:</strong> {% if project.file %}<a href="{{ project.file.url }}" download>Download File</a>{% else %}No file uploaded{% endif %}</p>
-<p><strong>Image:</strong> {% if project.image.url %}<img src="{{ project.image.url }}" alt="{{ project.name }}" style="max-width: 300px;">{% else %}No image uploaded{% endif %}</p>
-<a href="{% url 'resources:projects' %}" class="btn btn-secondary">Back to Projects</a>
+    <h1>{{ project.title }}</h1>
+    <p><strong>Description:</strong> {{ project.abstract }}</p>
+    <p><strong>GitHub Link:</strong> {% if project.github_link %}<a href="{{ project.github_link }}" target="_blank">View on GitHub</a>{% else %}No GitHub link provided{% endif %}</p>
+    <p><strong>File:</strong> {% if project.file %}<a href="{{ project.file.url }}" download>Download File</a>{% else %}No file uploaded{% endif %}</p>
+    <a href="{% url 'resources:projects' %}" class="btn btn-secondary">Back to Projects</a>
 {% endblock %}
