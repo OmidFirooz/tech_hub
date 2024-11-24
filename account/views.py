@@ -42,11 +42,12 @@ def profile_view(request):
 
 @login_required
 def profile_update(request):
+    profile = request.user.profile
     if request.method == 'POST':
-        form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        form = ProfileUpdateForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
-            return redirect('account:profile_view')
+            return redirect('account:profile')
     else:
-        form = ProfileUpdateForm(instance=request.user.profile)
+        form = ProfileUpdateForm(instance=profile)
     return render(request, 'account/profile_update.html', {'form': form})

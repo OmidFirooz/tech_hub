@@ -9,9 +9,9 @@ class TopicForm(forms.ModelForm):
 class ResourceForm(forms.ModelForm):
     class Meta:
         model = Resource
-        fields = ['title', 'link', 'description']
+        fields = ['title', 'link', 'description', 'file', 'image']
         
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['name', 'description', 'github_link']
+        fields = ['name', 'description', 'github_link', 'file', 'image']

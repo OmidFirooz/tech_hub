@@ -12,6 +12,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ resource.name }}</h5>
                     <p class="card-text">{{ resource.description }}</p>
+                    <a href="{% url 'resources:resource_detail' resource.pk %}" class="btn btn-info" target="_blank">View more</a>
                     <a href="{{ resource.link }}" class="btn btn-info" target="_blank">Access Resource</a>
                 </div>
             </div>

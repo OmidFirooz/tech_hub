@@ -25,7 +25,7 @@ def add_topic(request):
 @login_required
 def add_resources(request):
     if request.method == 'POST':
-        form = ResourceForm(request.POST)
+        form = ResourceForm(request.POST, request.FILES)
         if form.is_valid():
             resources = form.save(commit=False)
             resources.user = request.user
@@ -40,7 +40,7 @@ def add_resources(request):
 @login_required
 def add_project(request):
     if request.method == 'POST':
-        form = ProjectForm(request.POST)
+        form = ProjectForm(request.POST, request.FILES)
         if form.is_valid():
             project = form.save(commit=False)
             project.user = request.user
@@ -68,6 +68,12 @@ def topic_detail(request, pk):
     topic = get_object_or_404(Topic, pk=pk)
     return render(request, 'resources/topic_detail.html', {'topic':topic})
 
+# Resource detail
+@login_required
+def resource_detail(request, pk):
+    resource = get_object_or_404(Resource, pk=pk)
+    return render(request, 'resources/resource_detail.html', {'resource':resource})
+
 # Resources Page
 @login_required
 def resources_view(request):
@@ -79,3 +85,9 @@ def resources_view(request):
 def projects_view(request):
     projects = Project.objects.filter(user=request.user)  # Fetch all projects from the database
     return render(request, 'resources/projects.html', {'projects': projects})
+
+# Project Detail Page
+@login_required
+def project_detail(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    return render(request, 'projects/project_detail.html', {'project': project})
