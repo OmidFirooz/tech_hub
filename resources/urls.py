@@ -4,7 +4,8 @@ from . import views
 app_name = 'resources'
 
 urlpatterns = [
-    path('', views.homepage, name='homepage'),
+    # path('', views.homepage, name='homepage'),
+    path('', views.dashboard, name='dashboard'),
     path('topics/', views.topics_view, name='topics'),
     path('topic/<int:pk>/', views.topic_detail, name="topic_detail"),
     path('add-topic/', views.add_topic, name='add_topic'),

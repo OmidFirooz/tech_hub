@@ -1,0 +1,48 @@
+{% extends "resources/base.html" %}
+
+{% block content %}
+    <h2>Recent Resources</h2>
+    {% if resources %}
+        <ul>
+            {% for resource in resources %}
+                <li>
+                    <strong>{{ resource.title }}</strong> - {{ resource.description }}
+                    {% if resource.image %}
+                        <br><img src="{{ resource.image.url }}" alt="{{ resource.title }}" style="max-width: 150px;">
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No resources available.</p>
+    {% endif %}
+
+    <h2>Recent Projects</h2>
+    {% if projects %}
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <strong>{{ project.name }}</strong> - {{ project.description }}
+                    {% if project.image %}
+                        <br><img src="{{ project.image.url }}" alt="{{ project.name }}" style="max-width: 150px;">
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No projects available.</p>
+    {% endif %}
+
+    <h2>Recent Topics</h2>
+    {% if topics %}
+        <ul>
+            {% for topic in topics %}
+                <li>
+                    <strong>{{ topic.name }}</strong> - {{ topic.description }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No topics available.</p>
+    {% endif %}
+{% endblock %}

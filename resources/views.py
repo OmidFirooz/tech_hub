@@ -6,6 +6,43 @@ from .models import Topic, Resource, Project  # Profile, Assuming you have model
 from .forms import TopicForm, ResourceForm, ProjectForm
 
 
+# Dashboard
+@login_required
+def dashboard(request):
+    resources = Resource.objects.all().order_by('-created_at')
+    projects = Project.objects.all().order_by('-created_at')
+    topics = Topic.objects.all().order_by('-created_at')
+    context = {
+        'resources': resources,
+        'projects': projects,
+        'topics': topics,
+    }
+    
+    print("Resources: ", resources)
+    print("projects: ", projects)
+    print("topics: ", topics)
+    return render(request, 'resources/dashboard.html', context)
+
+
+
+# Homepage
+# @login_required
+# def homepage(request):
+#     resources = Resource.objects.all().order_by('-created_at')
+#     projects = Project.objects.all().order_by('-created_at')
+#     topics = Topic.objects.all().order_by('-created_at')
+#     context = {
+#         'resources': resources,
+#         'projects': projects,
+#         'topics': topics,
+#     }
+    
+#     print("resources: ", resources)
+#     print("projects: ", projects)
+#     print("topics: ", topics)
+#     return render(request, 'resources/test.html', context)
+    
+
 # Add Topic
 @login_required
 def add_topic(request):

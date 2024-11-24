@@ -6,6 +6,7 @@ class Topic(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='topics')
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
@@ -18,7 +19,8 @@ class Resource(models.Model):
     file = models.FileField(upload_to='resources/files/', blank=True, null=True)
     image = models.ImageField(upload_to='resources/images/', blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='resources')
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    
     def __str__(self):
         return self.title
 
@@ -30,6 +32,7 @@ class Project(models.Model):
     file = models.FileField(upload_to='projects/files/',blank=True, null=True)
     image = models.ImageField(upload_to='projects/images/', blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name

@@ -11,7 +11,7 @@ def register_view(request):
             user = form.save()
             print(f"User created: {user.username}")
             login(request, user)
-            return redirect('resources:homepage')
+            return redirect('resources:dashboard')
     else:
         form = UserCreationForm()
     return render(request, 'account/register.html', {'form': form})
@@ -22,14 +22,14 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('resources:homepage')
+            return redirect('resources:dashboard')
     else:
         form = AuthenticationForm()
     return render(request, 'account/login.html', {'form': form})
 
 def logout_view(request):
     logout(request)
-    return redirect('resources:homepage')
+    return redirect('resources:dashboard')
 
 @login_required
 def profile_view(request):
