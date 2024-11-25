@@ -1,48 +1,54 @@
 {% extends "resources/base.html" %}
 
 {% block content %}
-    <h2>Recent Resources</h2>
-    {% if resources %}
-        <ul>
-            {% for resource in resources %}
-                <li>
-                    <strong>{{ resource.title }}</strong> - {{ resource.description }}
-                    {% if resource.image %}
-                        <br><img src="{{ resource.image.url }}" alt="{{ resource.title }}" style="max-width: 150px;">
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No resources available.</p>
-    {% endif %}
+    <div class="container flash-card">
+        <h2>Recent Resources</h2>
+        {% if monographs %}
+            <ul>
+                {% for monograph in monographs %}
+                    <li>
+                        <strong>{{ monograph.title }}</strong> - {{ monograph.abstract }}
+                        {% if resource.image %}
+                            <br><img src="{{ monograph.image.url }}" alt="{{ monograph.title }}" style="max-width: 150px;">
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No resources available.</p>
+        {% endif %}
+    </div>
 
-    <h2>Recent Projects</h2>
-    {% if projects %}
-        <ul>
-            {% for project in projects %}
-                <li>
-                    <strong>{{ project.name }}</strong> - {{ project.description }}
-                    {% if project.image %}
-                        <br><img src="{{ project.image.url }}" alt="{{ project.name }}" style="max-width: 150px;">
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No projects available.</p>
-    {% endif %}
+    <div class="container flash-card">
+        <h2>Recent Projects</h2>
+        {% if projects %}
+            <ul>
+                {% for project in projects %}
+                    <li>
+                        <strong>{{ project.project_name }}</strong> - {{ project.abstract }}
+                        {% if project.image %}
+                            <br><img src="{{ project.image.url }}" alt="{{ project.name }}" style="max-width: 150px;">
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No projects available.</p>
+        {% endif %}
+    </div>
 
-    <h2>Recent Topics</h2>
-    {% if topics %}
-        <ul>
-            {% for topic in topics %}
-                <li>
-                    <strong>{{ topic.name }}</strong> - {{ topic.description }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No topics available.</p>
-    {% endif %}
+    <div class="container flash-card">
+        <h2>Recent Articles</h2>
+        {% if articles %}
+            <ul>
+                {% for article in articles %}
+                    <li>
+                        <strong>{{ article.name }}</strong> - {{ article.abstract }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No topics available.</p>
+        {% endif %}
+    </div>
 {% endblock %}

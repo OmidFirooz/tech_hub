@@ -5,7 +5,8 @@
     <h2>{{ article.title }}</h2>
     <h2>{{ article.user.username }}</h2>
     <p>{{ article.abstract }}</p>
+    <p><strong>File:</strong> {% if article.file %}<a href="{{ article.file.url }}" download>Download File</a>{% else %}No file uploaded{% endif %}</p>
+
     <a href="{% url 'resources:articles' %}" class="btn btn-secondary">Back to Topics</a>
 </div>
 {% endblock %}
-

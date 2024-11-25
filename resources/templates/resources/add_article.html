@@ -1,9 +1,9 @@
 {% extends 'resources/base.html' %}
 {% block content %}
-<h2>Add a Topic</h2>
+<h2>Add a Article</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Add Topic</button>
+    <button type="submit" class="btn btn-primary">Post</button>
 </form>
 {% endblock %}

@@ -1,9 +1,8 @@
 {% extends 'resources/base.html' %}
 
 {% block content %}
-<h1>{{ resource.title }}</h1>
-<p><strong>Description:</strong> {{ resource.description }}</p>
-<p><strong>Link:</strong> {% if resource.link %}<a href="{{ resource.link }}" target="_blank">View Resource</a>{% else %}No link provided{% endif %}</p>
-<p><strong>File:</strong> {% if resource.file %}<a href="{{ resource.file.url }}" download>Download File</a>{% else %}No file uploaded{% endif %}</p>
-<a href="{% url 'resources:monographs' %}" class="btn btn-secondary">Back to Resources</a>
+<h1>{{ monograph.title }}</h1>
+<p><strong>Description:</strong> {{ monograph.description }}</p>
+<p><strong>File:</strong> {% if monograph.file %}<a href="{{ monograph.file.url }}" download>Download File</a>{% else %}No file uploaded{% endif %}</p>
+<a href="{% url 'resources:monographs' %}" class="btn btn-secondary">Back to monographs</a>
 {% endblock %}
